@@ -1,0 +1,34 @@
+          var onRun = function(context) {
+          	var doc = context.document
+
+          	var selectLayersOfType_inContainer = function(layerType, containerLayer) {
+          		
+    // Filter layers using NSPredicate
+    var scope = (typeof containerLayer !== 'undefined') ? [containerLayer children] : [[doc currentPage] children],
+    predicate = NSPredicate.predicateWithFormat("(className == %@)", layerType),
+    layers = [scope filteredArrayUsingPredicate:predicate];
+    
+	// Deselect current selection
+	[doc currentPage].changeSelectionBySelectingLayers(nil);
+	
+	// Loop through filtered layers and select them
+	var loop = [layers objectEnumerator], layer;
+	while (layer = [loop nextObject]) {
+		[layer select:true byExpandingSelection:true]
+	}
+	log([layers count] + " " + layerType + "s selected")
+}
+
+// Select all Artboards in current page
+selectLayersOfType_inContainer("MSTextLayer")
+
+// Select all Text Layers in current page
+//selectLayersOfType_inContainer("MSTextLayer")
+
+// Types of layers that can be selected :
+// MSLayerGroup
+// MSShapeGroup
+// MSShapePathLayer
+// MSTextLayer
+// MSArtboardGroup
+};

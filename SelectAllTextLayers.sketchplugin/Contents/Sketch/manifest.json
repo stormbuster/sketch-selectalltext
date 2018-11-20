@@ -1,0 +1,25 @@
+{
+  "author" : "",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "name" : "Select All Text Layers",
+      "handlers" : {
+        "run" : "onRun"
+      },
+      "identifier" : "com.eyeem.sketchplugins.selectalltext",
+      "shortcut" : "control command t"
+    }
+  ],
+  "menu" : {
+    "title" : "Select All Text Layers",
+    "items" : [
+      "com.eyeem.sketchplugins.selectalltext"
+    ]
+  },
+  "identifier" : "com.example.sketch.c74e9555-8cf9-4850-8e28-f21a0733c166",
+  "version" : "1.0",
+  "description" : "",
+  "authorEmail" : "",
+  "name" : "Select All Text Layers"
+}
